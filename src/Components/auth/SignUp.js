@@ -1,8 +1,9 @@
-//rce
 import React, { Component } from 'react'
 
-class SignIn extends Component {
+class SignUp extends Component {
     state = {
+        firstName:'',
+        lastName:'',
         email:'',
         password:''
     };
@@ -23,18 +24,26 @@ class SignIn extends Component {
     render() {
         return (
             <div className='container'>
-                <form onSubmit={this.handleSubmit} >
-                    <h4 className='grey-text'>Log In</h4>
-                    <div className='input-field '>
+                <form onSubmit={this.handleSubmit}>
+                    <h4 className='grey-text'>Register</h4>
+                    <div className='input-field'>
+                        <label htmlFor='firstName'>First Name</label>
+                        <input type='text' id='firstName' onChange={this.handleChange} className='white-text' />
+                    </div>
+                    <div className='input-field'>
+                        <label htmlFor='lastName'>Last Name</label>
+                        <input type='text' id='lastName' onChange={this.handleChange} className='white-text'/>
+                    </div>
+                    <div className='input-field'>
                         <label htmlFor='email'>Email</label>
-                        <input type='email' id='email' onChange={this.handleChange} className='white-text' />
+                        <input type='email' id='email' onChange={this.handleChange} className='white-text'/>
                     </div>
                     <div className='input-field'>
                         <label htmlFor='password'>Password</label>
                         <input type='password' id='password' onChange={this.handleChange} className='white-text'/>
                     </div>
                     
-                    <button className='waves-effect waves-light btn pink lighten-1'>Log In</button>
+                    <button className='waves-effect waves-light btn pink lighten-1'>Sign Up</button>
                    
                 </form>
                 
@@ -43,4 +52,4 @@ class SignIn extends Component {
     }
 }
 
-export default SignIn;
+export default SignUp;

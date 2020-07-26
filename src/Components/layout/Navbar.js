@@ -5,7 +5,7 @@ import SignOutLinks from './SignOutLinks';
 
 const Navbar = () => {
         return(
-            <nav className='nav-wrapper blue-grey darken-4'>
+            <nav className='nav-wrapper black'>
                 <div className='container'>
                     <Link to='/' className='brand-logo'>Toolify</Link>
                     <SignInLinks />
