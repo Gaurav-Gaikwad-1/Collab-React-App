@@ -7,7 +7,7 @@ const Navbar = () => {
         return(
             <nav className='nav-wrapper black'>
                 <div className='container'>
-                    <Link to='/' className='brand-logo'>Toolify</Link>
+                    <Link to='/' className='brand-logo'>Collab</Link>
                     <SignInLinks />
                     <SignOutLinks />
                 </div>

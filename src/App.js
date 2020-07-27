@@ -5,7 +5,7 @@ import Dashboard from './Components/dashboard/Dashboard';
 import ProjectDetails from './Components/projects/ProjectDetails';
 import SignIn from './Components/auth/SignIn';
 import SignUp from './Components/auth/SignUp';
-import CreateProject from './Components/projects/CreateProject';//grey darken-4">
+import CreateProject from './Components/projects/CreateProject';
 
 function App() {
   return (
