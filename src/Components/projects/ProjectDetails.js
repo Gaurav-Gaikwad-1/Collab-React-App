@@ -2,39 +2,61 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {firestoreConnect } from 'react-redux-firebase';
 import {compose} from 'redux';
+import { Redirect } from 'react-router-dom';
+import moment from 'moment';
 
 
-const ProjectDetails = () => {
-    return(
-        <div className='container section project-details'>
-            <div className='card z-depth-0'>
-                <div className='card-content'>
-                    <span className='card-title'>Project Title</span>
-                    <p>lorem Here you can add a card that reveals more information once clicked. Just add the card-reveal div with a span.card-title inside to make this work. Add the class activator to an element inside the card to allow it to open the card reveal.</p>
-                    <div class="card-action">
-                        <div>Posted by net Ninja</div>
-                        <div>At wednesday 12:30pm</div>
+const ProjectDetails = (props) => {
+    const { project,auth } = props;
+
+    if (!auth.uid) return <Redirect to='/signin' />
+
+    if(project){ 
+        return(
+            <div className='container section project-details'>
+                <div className='card z-depth-0'>
+                    <p className='card-title ' id='center'>{project.title}</p>
+                    <div className='card-content'>
+                        <p>{project.content}</p>
+                    </div>
+                    <div className="card-action">
+                        <div>Posted by {project.authorFirstName} {project.authorLastName}</div>
+                        <div>{moment(project.createdAt.toDate()).calendar()}</div>
                     </div> 
+                   
                 </div>
             </div>
-        </div>
-    )
+        )
+    } else {
+        return(
+            <div className='container center'>
+                Loading project....
+            </div>
+        )
+        
+    }
 }
 
+
+
+
+
+
 const mapStateToProps = (state,ownProps) => {
-    console.log(state);
+    //console.log(state);
     const id = ownProps.match.params.id;
     const projects = state.firestore.data.projects;
-    const project = projects? projects[id] : null
+    const project = projects ? projects[id] : null
     return{
-        project: project
+        project:project,
+        auth:state.firebase.auth
     }
 }
 export default compose(
     connect(mapStateToProps),
-    firestoreConnect((props)=>{ 
-        return [
+    firestoreConnect((props)=>
+        [
             {collection :'projects',doc:props.match.params.id},
-         ];
-        })
+         ])
 )(ProjectDetails);
+

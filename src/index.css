@@ -11,6 +11,10 @@ code {
     monospace;
 }
 
+.nav-wrapper{
+  background-color:#3c3d58;
+}
+
 .input-field{
     background-color: #191b2b;
 }
@@ -40,5 +44,35 @@ textarea.materialize-textarea:focus:not([readonly]){
   border-color: #ec407a;
   box-shadow: none;
 }
+.card-title{
+  text-transform: uppercase;
+}
 
+#center{
+  text-align: center;
+  font-weight: bold;
+  font-family: 'Courier New', Courier, monospace;
+}
 
+#title{
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: 300;
+}
+.card-content{
+  font-size: medium;
+}
+
+.not{
+  margin-top: 20px;
+}
+.leftspace{
+  padding-left: 20%;
+}
+
+.brand-logo{
+ font-family: 'Playfair Display', serif;
+}
+
+.card-titlee{
+  font-size: x-large;
+}
